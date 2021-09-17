@@ -1,0 +1,44 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+build:
+	dh_auto_configure
+	dh_auto_build
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean 
+
+# Build architecture-independent files here.
+binary-indep:;
+# We have nothing to do by default.
+
+binary-arch:
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	#dh_installdocs
+	dh_installdebconf
+	dh_auto_install
+	#dh_installcron
+	#dh_installlogrotate
+	dh_compress 
+	dh_fixperms
+	dh_installdeb
+	dh_installdirs
+	dh_installdocs
+	dh_install
+	dh_strip
+	dh_link
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary

@@ -1,0 +1,10 @@
+Source: openvpn-auth-otp
+Section: net
+Priority: optional
+Maintainer: VyOS Package Maintainers <maintainers@vyos.net>
+Build-Depends: debhelper (>= 5), libssl-dev, openvpn
+
+Package: openvpn-auth-otp
+Architecture: any
+Depends: openvpn
+Description: otp auth plugin for openvpn from http://github.com/evgeny-gridasov/openvpn-otp
